@@ -1,5 +1,16 @@
 # horoscope-daq
 
+To Get the `stub` folder
+1. Drag `horosocpe-api.yaml` in [edittor.swagger](https://editor.swagger.io)
+
+2. Click `Generate Server` at the top of [edittor.swagger](https://editor.swagger.io)
+
+3. Select `python-flask`, it will be downloaded.
+
+4. Rename the folder to `stub`.
+
+5. Drag into the root folder.
+
 To run REST API Server
 
 1. Create virtual environment
