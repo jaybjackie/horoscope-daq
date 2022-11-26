@@ -1,0 +1,127 @@
+openapi: 3.0.0
+info:
+  title: Horoscope Data API
+  description:
+    This API provides historical and current AQI, Temperature, Precipitaion Probability, UV Index datas
+    from API sources.
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:8080/horoscope-api/v1
+paths:
+  /current/aqi:
+    get:
+      summary: Return current AQI value.
+      operationId: controller.get_current_aqi
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: number
+  /current/temperature:
+    get:
+      summary: Return current temperature in degree celsius.
+      operationId: controller.get_current_temp
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: number
+  /current/precipitation:
+    get:
+      summary: Return current Precipitation Probability.
+      operationId: controller.get_current_precipitation_probability
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: number
+  /current/uv_index:
+    get:
+      summary: Return current UV Index.
+      operationId: controller.get_current_uv_index
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: number
+  /history/aqi:
+    get:
+      summary: Returns a list of aqi along the time.
+      operationId: controller.get_history_aqi
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AQI'
+  /history/TemperaturePrecitation:
+    get:
+      summary: Returns a list of aqi along the time.
+      operationId: controller.get_history_temperature_precipitation
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TemperaturePrecipitation'
+                  
+  /history/uv_index:
+    get:
+      summary: Returns a list of UV Index overtime.
+      operationId: controller.get_history_uv_index
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UV'
+
+components:
+  schemas:
+    AQI:
+      type: object
+      properties:
+        id:
+          type: integer
+        ts:
+          type: string
+        pm25:
+          type: number
+    TemperaturePrecipitation:
+      type: object
+      properties:
+        id:
+          type: integer
+        ts:
+          type: string
+        temperature:
+          type: number
+        precipitationProb:
+          type: number
+    UV:
+      type: object
+      properties:
+        id:
+          type: integer
+        ts:
+          type: string
+        uv:
+          type: number
+          description: UV Index
