@@ -67,7 +67,7 @@ paths:
                   $ref: '#/components/schemas/AQI'
   /history/TemperaturePrecitation:
     get:
-      summary: Returns a list of aqi along the time.
+      summary: Returns a list of temperature and precipitation probability over the time.
       operationId: controller.get_history_temperature_precipitation
       responses:
         200:
