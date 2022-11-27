@@ -1,4 +1,4 @@
-# horoscope-daq
+# horoscope-daq 
 
 To Get the `stub` folder
 1. Drag `horosocpe-api.yaml` in [edittor.swagger](https://editor.swagger.io)
